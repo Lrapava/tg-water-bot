@@ -1,6 +1,6 @@
 const { Bot } = require("grammy");
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const { uri, APItoken } = require('private.js')
+const { uri, APItoken } = require('./private.js')
 
 const bot = new Bot(APItoken);
 
