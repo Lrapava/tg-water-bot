@@ -40,13 +40,11 @@ async function notify(id) {
 		if (activeUsers.get(id).paused) return
 		try { await bot.api.sendMessage(id, "DRINK WATER YOU STOOPID GOOSE") } catch (error) {
 			console.log(error)
-			if (error.error_code == 403) {
-				activeUsers.set(id, {...activeUsers.get(id), paused: true})
-				activeUsers.delete(id)
-			}
-			return
+			activeUsers.set(id, {...activeUsers.get(id), paused: true})
+			break
 		}
 	}
+	activeUsers.delete(id)
 }
 
 bot.command("pause", async (ctx) => {
